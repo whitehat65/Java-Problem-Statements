@@ -12,8 +12,15 @@ public class SortArray {
 			arr[i]=sc.nextInt();
 		}
 		int[] ascendingArray=ascendingSort(arr);
+		System.out.println("Asecnding Array");
 		for(int i=0;i<ascendingArray.length;i++) {
 			System.out.print(ascendingArray[i]+" ");
+		}
+		System.out.println();
+		int[] descendingArray=descendingSort(arr);
+		System.out.println("Descending Array");
+		for(int i=0;i<descendingArray.length;i++) {
+			System.out.print(descendingArray[i]+" ");
 		}
 		
 		sc.close();
@@ -29,6 +36,20 @@ public class SortArray {
 			}
 			int temp=arr[minIndex];
 			arr[minIndex]=arr[i];
+			arr[i]=temp;
+		}
+		return arr;
+	}
+	public static int[] descendingSort(int[] arr) {
+		for(int i=0;i<arr.length;i++) {
+			int maxIndex=i;
+			for(int j=i+1;j<arr.length;j++) {
+				if(arr[maxIndex]<arr[j]) {
+					maxIndex=j;
+				}
+			}
+			int temp=arr[maxIndex];
+			arr[maxIndex]=arr[i];
 			arr[i]=temp;
 		}
 		return arr;
